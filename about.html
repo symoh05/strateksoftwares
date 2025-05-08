@@ -1,0 +1,1042 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us | Stratek Softwares</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* Reuse the same CSS variables and base styles from your main page */
+        :root {
+            --primary: #12071F;
+            --primary-light: #1E1035;
+            --secondary: #7C4DFF;
+            --accent: #B388FF;
+            --text: #F5F5F5;
+            --text-secondary: #E0E0E0;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #0A0415;
+            color: var(--text);
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        /* Header Styles (same as main page) */
+        header {
+            background-color: var(--primary);
+            position: fixed;
+            width: 100%;
+            z-index: 1000;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+            transition: all 0.3s ease;
+            left: 0;
+            right: 0;
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.5rem 5%;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo-icon {
+            font-size: 2rem;
+            color: var(--accent);
+        }
+
+        .logo-text {
+            font-size: 1.8rem;
+            font-weight: 700;
+            background: linear-gradient(to right, var(--accent), var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        nav a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        nav a:hover {
+            color: var(--accent);
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background-color: var(--accent);
+            transition: width 0.3s ease;
+        }
+
+        nav a:hover::after {
+            width: 100%;
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--text);
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* About Hero Section */
+        .about-hero {
+            height: 60vh;
+            background: linear-gradient(135deg, var(--primary), #0A0415);
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            padding: 0 5%;
+            padding-top: 80px; /* Account for fixed header */
+        }
+
+        .about-hero-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            text-align: center;
+            z-index: 2;
+            width: 100%;
+        }
+
+        .about-hero h1 {
+            font-size: 4rem;
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+            background: linear-gradient(to right, var(--text), var(--accent));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: fadeIn 1s ease forwards;
+        }
+
+        .about-hero p {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            color: var(--text-secondary);
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+            animation: fadeIn 1s ease 0.3s forwards;
+            opacity: 0;
+        }
+
+        /* Breadcrumb */
+        .breadcrumb {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 2rem;
+            animation: fadeIn 1s ease 0.2s forwards;
+            opacity: 0;
+        }
+
+        .breadcrumb a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .breadcrumb a:hover {
+            color: var(--accent);
+        }
+
+        .breadcrumb-separator {
+            margin: 0 10px;
+            color: var(--text-secondary);
+        }
+
+        .breadcrumb .current {
+            color: var(--accent);
+        }
+
+        /* About Content Section */
+        .about-content-section {
+            padding: 6rem 5%;
+            background-color: #0A0415;
+            position: relative;
+        }
+
+        .about-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-title h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: var(--text);
+        }
+
+        .section-title p {
+            color: var(--text-secondary);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 3rem;
+            margin-bottom: 4rem;
+        }
+
+        .about-card {
+            background-color: var(--primary-light);
+            border-radius: 15px;
+            padding: 2.5rem 2rem;
+            transition: all 0.4s ease;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+            border: 1px solid rgba(123, 77, 255, 0.1);
+            text-align: center;
+        }
+
+        .about-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(123, 77, 255, 0.1), rgba(179, 136, 255, 0.05));
+            z-index: -1;
+        }
+
+        .about-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(123, 77, 255, 0.2);
+            border-color: rgba(123, 77, 255, 0.3);
+        }
+
+        .about-icon {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+            color: var(--accent);
+            transition: transform 0.3s ease;
+        }
+
+        .about-card:hover .about-icon {
+            transform: scale(1.2) rotate(10deg);
+        }
+
+        .about-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--text);
+        }
+
+        .about-card p {
+            color: var(--text-secondary);
+        }
+
+        /* Our Story Section */
+        .our-story {
+            display: flex;
+            align-items: center;
+            gap: 4rem;
+            margin-bottom: 6rem;
+        }
+
+        .story-image {
+            flex: 1;
+            position: relative;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+            min-height: 400px;
+        }
+
+        .story-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .story-image:hover img {
+            transform: scale(1.05);
+        }
+
+        .story-content {
+            flex: 1;
+        }
+
+        .story-content h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            color: var(--text);
+        }
+
+        .story-content p {
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+        }
+
+        /* Team Section */
+        .team-section {
+            margin-bottom: 6rem;
+        }
+
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .team-member {
+            background-color: var(--primary-light);
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            transition: all 0.4s ease;
+            text-align: center;
+        }
+
+        .team-member:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(123, 77, 255, 0.2);
+        }
+
+        .member-image {
+            height: 300px;
+            overflow: hidden;
+        }
+
+        .member-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .team-member:hover .member-image img {
+            transform: scale(1.1);
+        }
+
+        .member-info {
+            padding: 2rem;
+        }
+
+        .member-info h3 {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+            color: var(--text);
+        }
+
+        .member-info p.member-role {
+            color: var(--accent);
+            margin-bottom: 1rem;
+            font-weight: 500;
+        }
+
+        .member-info p.member-bio {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .member-social {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+        }
+
+        .member-social a {
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            background-color: var(--primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text);
+            transition: all 0.3s ease;
+        }
+
+        .member-social a:hover {
+            background-color: var(--accent);
+            color: var(--primary);
+            transform: translateY(-3px);
+        }
+
+        /* Values Section */
+        .values-section {
+            margin-bottom: 6rem;
+        }
+
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .value-card {
+            background-color: var(--primary-light);
+            border-radius: 15px;
+            padding: 2rem;
+            transition: all 0.4s ease;
+            border-left: 4px solid var(--accent);
+        }
+
+        .value-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(123, 77, 255, 0.1);
+        }
+
+        .value-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--text);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .value-card h3 i {
+            color: var(--accent);
+        }
+
+        .value-card p {
+            color: var(--text-secondary);
+        }
+
+        /* CTA Section */
+        .about-cta {
+            text-align: center;
+            padding: 4rem;
+            background: linear-gradient(135deg, var(--primary), #0A0415);
+            border-radius: 15px;
+            margin-bottom: 6rem;
+        }
+
+        .about-cta h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            color: var(--text);
+        }
+
+        .about-cta p {
+            color: var(--text-secondary);
+            max-width: 700px;
+            margin: 0 auto 2rem;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: linear-gradient(45deg, var(--secondary), var(--accent));
+            color: white;
+            padding: 0.8rem 2rem;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(123, 77, 255, 0.4);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(123, 77, 255, 0.6);
+        }
+
+        /* Footer (same as main page) */
+        footer {
+            background-color: var(--primary);
+            padding: 4rem 5% 2rem;
+            position: relative;
+        }
+
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .footer-col h3 {
+            font-size: 1.3rem;
+            margin-bottom: 1.5rem;
+            position: relative;
+            padding-bottom: 0.5rem;
+            color: var(--text);
+        }
+
+        .footer-col h3::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 50px;
+            height: 2px;
+            background-color: var(--accent);
+        }
+
+        .footer-col p {
+            color: var(--text-secondary);
+            margin-bottom: 1rem;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 0.8rem;
+        }
+
+        .footer-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .footer-links a:hover {
+            color: var(--accent);
+            transform: translateX(5px);
+        }
+
+        .footer-links i {
+            font-size: 0.8rem;
+            color: var(--accent);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        .social-link {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: var(--primary-light);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text);
+            transition: all 0.3s ease;
+            border: 1px solid rgba(123, 77, 255, 0.1);
+        }
+
+        .social-link:hover {
+            background-color: var(--accent);
+            transform: translateY(-5px);
+            color: var(--primary);
+            box-shadow: 0 5px 15px rgba(123, 77, 255, 0.3);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 992px) {
+            .our-story {
+                flex-direction: column;
+            }
+
+            .story-image {
+                width: 100%;
+            }
+
+            .about-hero h1 {
+                font-size: 3rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            nav ul {
+                position: fixed;
+                top: 80px;
+                left: -100%;
+                width: 100%;
+                height: calc(100vh - 80px);
+                background-color: var(--primary);
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                gap: 3rem;
+                transition: all 0.5s ease;
+            }
+
+            nav ul.active {
+                left: 0;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .about-hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .section-title h2 {
+                font-size: 2rem;
+            }
+
+            .about-cta {
+                padding: 2rem 1.5rem;
+            }
+
+            .about-cta h2 {
+                font-size: 2rem;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .header-container {
+                padding: 1rem 5%;
+            }
+
+            .logo-text {
+                font-size: 1.5rem;
+            }
+
+            .about-hero {
+                height: 70vh;
+            }
+
+            .about-hero h1 {
+                font-size: 2rem;
+            }
+
+            .about-hero p {
+                font-size: 1rem;
+            }
+
+            .about-card,
+            .team-member,
+            .value-card {
+                min-width: 100%;
+            }
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes slideInLeft {
+            from { 
+                opacity: 0;
+                transform: translateX(-50px);
+            }
+            to { 
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes slideInRight {
+            from { 
+                opacity: 0;
+                transform: translateX(50px);
+            }
+            to { 
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes slideInUp {
+            from { 
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to { 
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .animate-fadeIn {
+            animation: fadeIn 1s ease forwards;
+        }
+
+        .animate-slideInLeft {
+            animation: slideInLeft 1s ease forwards;
+        }
+
+        .animate-slideInRight {
+            animation: slideInRight 1s ease forwards;
+        }
+
+        .animate-slideInUp {
+            animation: slideInUp 1s ease forwards;
+        }
+
+        .delay-1 {
+            animation-delay: 0.2s;
+        }
+
+        .delay-2 {
+            animation-delay: 0.4s;
+        }
+
+        .delay-3 {
+            animation-delay: 0.6s;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="header-container">
+            <div class="logo">
+                <div class="logo-icon">
+                    <i class="fas fa-code"></i>
+                </div>
+                <span class="logo-text">Stratek Softwares</span>
+            </div>
+            <nav>
+                <button class="mobile-menu-btn">
+                    <i class="fas fa-bars"></i>
+                </button>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="index.html#services">Services</a></li>
+                    <li><a href="about.html" class="active">About</a></li>
+                    <li><a href="index.html#portfolio">Portfolio</a></li>
+                    <li><a href="index.html#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- About Hero Section -->
+    <section class="about-hero">
+        <div class="glow glow-1"></div>
+        <div class="glow glow-2"></div>
+        <div class="about-hero-content">
+            <div class="breadcrumb">
+                <a href="index.html">Home</a>
+                <span class="breadcrumb-separator">/</span>
+                <span class="current">About Us</span>
+            </div>
+            <h1>Our Story</h1>
+            <p>Discover the passion, innovation, and expertise that drive Stratek Softwares to deliver exceptional digital solutions.</p>
+        </div>
+    </section>
+
+    <!-- About Content Section -->
+    <section class="about-content-section">
+        <div class="about-container">
+            <div class="section-title animate-fadeIn">
+                <h2>Who We Are</h2>
+                <p>We are a team of passionate technologists dedicated to transforming your digital vision into reality.</p>
+            </div>
+
+            <div class="about-grid">
+                <div class="about-card animate-slideInUp">
+                    <div class="about-icon">
+                        <i class="fas fa-lightbulb"></i>
+                    </div>
+                    <h3>Our Vision</h3>
+                    <p>To be the most trusted partner for businesses seeking innovative digital solutions that drive growth and success in an increasingly connected world.</p>
+                </div>
+                <div class="about-card animate-slideInUp delay-1">
+                    <div class="about-icon">
+                        <i class="fas fa-bullseye"></i>
+                    </div>
+                    <h3>Our Mission</h3>
+                    <p>To deliver cutting-edge, customized software solutions that empower businesses to thrive in the digital landscape through technology excellence.</p>
+                </div>
+                <div class="about-card animate-slideInUp delay-2">
+                    <div class="about-icon">
+                        <i class="fas fa-handshake"></i>
+                    </div>
+                    <h3>Our Approach</h3>
+                    <p>We believe in collaborative partnerships, transparent communication, and agile methodologies to deliver solutions that exceed expectations.</p>
+                </div>
+            </div>
+
+            <div class="our-story">
+                <div class="story-image animate-slideInLeft">
+                    <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Stratek Softwares Team">
+                </div>
+                <div class="story-content animate-slideInRight">
+                    <h2>From Humble Beginnings to Industry Leaders</h2>
+                    <p>Founded in 2015 by a small group of passionate developers, Stratek Softwares began as a modest startup with big dreams. What started as a team of three working from a shared workspace has grown into a thriving company with over 50 talented professionals.</p>
+                    <p>Our journey hasn't been without challenges, but each obstacle has strengthened our resolve and sharpened our expertise. Today, we're proud to have delivered over 200 successful projects to clients across various industries, from ambitious startups to established enterprises.</p>
+                    <p>Despite our growth, we've maintained our startup spirit - agile, innovative, and deeply committed to our clients' success. We believe technology should be an enabler, not a barrier, and this philosophy guides everything we do.</p>
+                </div>
+            </div>
+
+            <div class="team-section">
+                <div class="section-title animate-fadeIn">
+                    <h2>Meet Our Team</h2>
+                    <p>The brilliant minds behind our innovative solutions</p>
+                </div>
+                <div class="team-grid">
+                    <div class="team-member animate-slideInUp">
+                        <div class="member-image">
+                            <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Alex Johnson">
+                        </div>
+                        <div class="member-info">
+                            <h3>Alex Johnson</h3>
+                            <p class="member-role">CEO & Founder</p>
+                            <p class="member-bio">With over 15 years in software development, Alex leads our strategic vision and ensures we stay at the forefront of technology.</p>
+                            <div class="member-social">
+                                <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                                <a href="#"><i class="fab fa-twitter"></i></a>
+                                <a href="#"><i class="fas fa-envelope"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="team-member animate-slideInUp delay-1">
+                        <div class="member-image">
+                            <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Sarah Chen">
+                        </div>
+                        <div class="member-info">
+                            <h3>Sarah Chen</h3>
+                            <p class="member-role">CTO</p>
+                            <p class="member-bio">Sarah oversees our technical architecture and ensures our solutions are built on solid, scalable foundations.</p>
+                            <div class="member-social">
+                                <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                                <a href="#"><i class="fab fa-github"></i></a>
+                                <a href="#"><i class="fas fa-envelope"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="team-member animate-slideInUp delay-2">
+                        <div class="member-image">
+                            <img src="https://randomuser.me/api/portraits/men/75.jpg" alt="Michael Rodriguez">
+                        </div>
+                        <div class="member-info">
+                            <h3>Michael Rodriguez</h3>
+                            <p class="member-role">Lead Designer</p>
+                            <p class="member-bio">Michael brings our clients' visions to life with intuitive, beautiful interfaces that users love.</p>
+                            <div class="member-social">
+                                <a href="#"><i class="fab fa-dribbble"></i></a>
+                                <a href="#"><i class="fab fa-behance"></i></a>
+                                <a href="#"><i class="fas fa-envelope"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="team-member animate-slideInUp">
+                        <div class="member-image">
+                            <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="Emily Park">
+                        </div>
+                        <div class="member-info">
+                            <h3>Emily Park</h3>
+                            <p class="member-role">Project Manager</p>
+                            <p class="member-bio">Emily ensures our projects are delivered on time, on budget, and exceed client expectations.</p>
+                            <div class="member-social">
+                                <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                                <a href="#"><i class="fab fa-twitter"></i></a>
+                                <a href="#"><i class="fas fa-envelope"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="values-section">
+                <div class="section-title animate-fadeIn">
+                    <h2>Our Core Values</h2>
+                    <p>The principles that guide everything we do</p>
+                </div>
+                <div class="values-grid">
+                    <div class="value-card animate-slideInUp">
+                        <h3><i class="fas fa-star"></i> Excellence</h3>
+                        <p>We pursue perfection in every line of code, every design element, and every client interaction. Good enough is never good enough for us.</p>
+                    </div>
+                    <div class="value-card animate-slideInUp delay-1">
+                        <h3><i class="fas fa-users"></i> Collaboration</h3>
+                        <p>We believe the best solutions come from teamwork - with our colleagues and with our clients. Your success is our success.</p>
+                    </div>
+                    <div class="value-card animate-slideInUp delay-2">
+                        <h3><i class="fas fa-lightbulb"></i> Innovation</h3>
+                        <p>We constantly explore new technologies and approaches to deliver cutting-edge solutions that give our clients a competitive edge.</p>
+                    </div>
+                    <div class="value-card animate-slideInUp">
+                        <h3><i class="fas fa-hand-holding-heart"></i> Integrity</h3>
+                        <p>We're honest, transparent, and ethical in all our dealings. We do what's right, not just what's easy or profitable.</p>
+                    </div>
+                    <div class="value-card animate-slideInUp delay-1">
+                        <h3><i class="fas fa-graduation-cap"></i> Continuous Learning</h3>
+                        <p>In a rapidly changing tech landscape, we're committed to ongoing education and skill development to stay ahead of the curve.</p>
+                    </div>
+                    <div class="value-card animate-slideInUp delay-2">
+                        <h3><i class="fas fa-laugh"></i> Fun</h3>
+                        <p>We love what we do, and that passion shows in our work. A positive, enjoyable work environment fuels our creativity and productivity.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="about-cta animate-fadeIn">
+                <h2>Ready to Start Your Project?</h2>
+                <p>Whether you have a clear vision or just an idea, we're here to help bring it to life. Let's create something amazing together.</p>
+                <a href="index.html#contact" class="cta-button">Get in Touch</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-col">
+                <h3>Stratek Softwares</h3>
+                <p>Innovative digital solutions tailored to your business needs. We create, maintain, and optimize your online presence.</p>
+                <div class="social-links">
+                    <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-github"></i></a>
+                </div>
+            </div>
+            <div class="footer-col">
+                <h3>Quick Links</h3>
+                <ul class="footer-links">
+                    <li><a href="index.html"><i class="fas fa-chevron-right"></i> Home</a></li>
+                    <li><a href="index.html#services"><i class="fas fa-chevron-right"></i> Services</a></li>
+                    <li><a href="about.html"><i class="fas fa-chevron-right"></i> About Us</a></li>
+                    <li><a href="index.html#portfolio"><i class="fas fa-chevron-right"></i> Portfolio</a></li>
+                    <li><a href="index.html#contact"><i class="fas fa-chevron-right"></i> Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h3>Our Services</h3>
+                <ul class="footer-links">
+                    <li><a href="#"><i class="fas fa-chevron-right"></i> Web Development</a></li>
+                    <li><a href="#"><i class="fas fa-chevron-right"></i> App Development</a></li>
+                    <li><a href="#"><i class="fas fa-chevron-right"></i> Database Solutions</a></li>
+                    <li><a href="#"><i class="fas fa-chevron-right"></i> UI/UX Design</a></li>
+                    <li><a href="#"><i class="fas fa-chevron-right"></i> SEO Optimization</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h3>Newsletter</h3>
+                <p>Subscribe to our newsletter for the latest updates and tech insights.</p>
+                <form class="newsletter-form">
+                    <input type="email" placeholder="Your Email" required>
+                    <button type="submit" class="submit-btn">Subscribe</button>
+                </form>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2023 Stratek Softwares. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+        const navUl = document.querySelector('nav ul');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            navUl.classList.toggle('active');
+            mobileMenuBtn.innerHTML = navUl.classList.contains('active') ? 
+                '<i class="fas fa-times"></i>' : '<i class="fas fa-bars"></i>';
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                if(targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                    
+                    // Close mobile menu if open
+                    if(navUl.classList.contains('active')) {
+                        navUl.classList.remove('active');
+                        mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+                    }
+                }
+            });
+        });
+
+        // Scroll animations
+        const animateElements = document.querySelectorAll('.animate-fadeIn, .animate-slideInLeft, .animate-slideInRight, .animate-slideInUp');
+
+        function checkScroll() {
+            animateElements.forEach(element => {
+                const elementTop = element.getBoundingClientRect().top;
+                const windowHeight = window.innerHeight;
+                
+                if(elementTop < windowHeight - 100) {
+                    element.style.opacity = 1;
+                    element.style.transform = 'translate(0, 0)';
+                }
+            });
+        }
+
+        // Initial check
+        checkScroll();
+        
+        // Check on scroll
+        window.addEventListener('scroll', checkScroll);
+
+        // Form submission
+        const newsletterForm = document.querySelector('.newsletter-form');
+        if(newsletterForm) {
+            newsletterForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                alert('Thank you for subscribing to our newsletter!');
+                this.reset();
+            });
+        }
+    </script>
+</body>
+</html>
