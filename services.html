@@ -1,0 +1,1201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Services | Stratek Softwares</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* Reuse the same CSS variables and base styles from your main page */
+        :root {
+            --primary: #12071F;
+            --primary-light: #1E1035;
+            --secondary: #7C4DFF;
+            --accent: #B388FF;
+            --text: #F5F5F5;
+            --text-secondary: #E0E0E0;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #0A0415;
+            color: var(--text);
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        /* Header Styles (same as main page) */
+        header {
+            background-color: var(--primary);
+            position: fixed;
+            width: 100%;
+            z-index: 1000;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+            transition: all 0.3s ease;
+            left: 0;
+            right: 0;
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.5rem 5%;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo-icon {
+            font-size: 2rem;
+            color: var(--accent);
+        }
+
+        .logo-text {
+            font-size: 1.8rem;
+            font-weight: 700;
+            background: linear-gradient(to right, var(--accent), var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        nav a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        nav a:hover {
+            color: var(--accent);
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background-color: var(--accent);
+            transition: width 0.3s ease;
+        }
+
+        nav a:hover::after {
+            width: 100%;
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--text);
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* Services Hero Section */
+        .services-hero {
+            height: 40vh;
+            min-height: 300px;
+            background: linear-gradient(135deg, var(--primary), #0A0415);
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            padding: 0 5%;
+            padding-top: 80px; /* Account for fixed header */
+        }
+
+        .services-hero-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            text-align: center;
+            z-index: 2;
+            width: 100%;
+        }
+
+        .services-hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+            background: linear-gradient(to right, var(--text), var(--accent));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: fadeIn 1s ease forwards;
+        }
+
+        .services-hero p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            color: var(--text-secondary);
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+            animation: fadeIn 1s ease 0.3s forwards;
+            opacity: 0;
+        }
+
+        /* Breadcrumb */
+        .breadcrumb {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 2rem;
+            animation: fadeIn 1s ease 0.2s forwards;
+            opacity: 0;
+        }
+
+        .breadcrumb a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .breadcrumb a:hover {
+            color: var(--accent);
+        }
+
+        .breadcrumb-separator {
+            margin: 0 10px;
+            color: var(--text-secondary);
+        }
+
+        .breadcrumb .current {
+            color: var(--accent);
+        }
+
+        /* Glow effect */
+        .glow {
+            position: absolute;
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(123, 77, 255, 0.3), transparent 70%);
+            filter: blur(30px);
+            z-index: 1;
+        }
+
+        .glow-1 {
+            top: 20%;
+            left: 10%;
+            animation: pulse 8s infinite alternate;
+        }
+
+        .glow-2 {
+            bottom: 15%;
+            right: 15%;
+            animation: pulse 6s infinite alternate-reverse;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(0.8); opacity: 0.5; }
+            100% { transform: scale(1.2); opacity: 0.8; }
+        }
+
+        /* Services Main Content */
+        .services-main {
+            padding: 6rem 5%;
+            background-color: #0A0415;
+            position: relative;
+        }
+
+        .services-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-title h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: var(--text);
+        }
+
+        .section-title p {
+            color: var(--text-secondary);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        /* Service Categories */
+        .service-categories {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-bottom: 3rem;
+        }
+
+        .category-btn {
+            padding: 0.8rem 1.5rem;
+            background-color: var(--primary-light);
+            color: var(--text-secondary);
+            border: none;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 500;
+        }
+
+        .category-btn:hover {
+            color: var(--text);
+            background-color: rgba(123, 77, 255, 0.2);
+        }
+
+        .category-btn.active {
+            background: linear-gradient(45deg, var(--secondary), var(--accent));
+            color: white;
+            box-shadow: 0 4px 15px rgba(123, 77, 255, 0.4);
+        }
+
+        /* Services Grid */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+
+        .service-card {
+            background-color: var(--primary-light);
+            border-radius: 15px;
+            padding: 2.5rem 2rem;
+            transition: all 0.4s ease;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+            border: 1px solid rgba(123, 77, 255, 0.1);
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(123, 77, 255, 0.1), rgba(179, 136, 255, 0.05));
+            z-index: -1;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(123, 77, 255, 0.2);
+            border-color: rgba(123, 77, 255, 0.3);
+        }
+
+        .service-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            color: var(--accent);
+            transition: transform 0.3s ease;
+        }
+
+        .service-card:hover .service-icon {
+            transform: scale(1.2) rotate(10deg);
+        }
+
+        .service-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--text);
+        }
+
+        .service-card p {
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+        }
+
+        .service-features {
+            margin-bottom: 1.5rem;
+        }
+
+        .service-features li {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-bottom: 0.5rem;
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        .service-features i {
+            color: var(--accent);
+            font-size: 0.8rem;
+        }
+
+        .service-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .service-link:hover {
+            gap: 1rem;
+            text-decoration: underline;
+        }
+
+        /* Service Details Section */
+        .service-details {
+            margin-top: 6rem;
+        }
+
+        .detail-tabs {
+            display: flex;
+            border-bottom: 1px solid rgba(123, 77, 255, 0.2);
+            margin-bottom: 2rem;
+        }
+
+        .detail-tab {
+            padding: 1rem 2rem;
+            cursor: pointer;
+            position: relative;
+            color: var(--text-secondary);
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .detail-tab:hover {
+            color: var(--text);
+        }
+
+        .detail-tab.active {
+            color: var(--accent);
+        }
+
+        .detail-tab.active::after {
+            content: '';
+            position: absolute;
+            bottom: -1px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background-color: var(--accent);
+        }
+
+        .detail-content {
+            display: none;
+            animation: fadeIn 0.5s ease;
+        }
+
+        .detail-content.active {
+            display: block;
+        }
+
+        .detail-content h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            color: var(--text);
+        }
+
+        .detail-content p {
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+        }
+
+        .detail-content ul {
+            margin-bottom: 1.5rem;
+            padding-left: 1.5rem;
+        }
+
+        .detail-content li {
+            color: var(--text-secondary);
+            margin-bottom: 0.5rem;
+        }
+
+        /* Process Section */
+        .process-section {
+            margin-top: 6rem;
+        }
+
+        .process-steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .process-step {
+            text-align: center;
+            position: relative;
+        }
+
+        .process-step:not(:last-child)::after {
+            content: '';
+            position: absolute;
+            top: 50px;
+            right: -1rem;
+            width: 2rem;
+            height: 10px;
+            background-color: var(--primary-light);
+            z-index: -1;
+        }
+
+        .process-number {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(45deg, var(--secondary), var(--accent));
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin: 0 auto 1.5rem;
+        }
+
+        .process-step h3 {
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            color: var(--text);
+        }
+
+        .process-step p {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        /* CTA Section */
+        .services-cta {
+            text-align: center;
+            padding: 4rem;
+            background: linear-gradient(135deg, var(--primary), #0A0415);
+            border-radius: 15px;
+            margin-top: 6rem;
+        }
+
+        .services-cta h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            color: var(--text);
+        }
+
+        .services-cta p {
+            color: var(--text-secondary);
+            max-width: 700px;
+            margin: 0 auto 2rem;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: linear-gradient(45deg, var(--secondary), var(--accent));
+            color: white;
+            padding: 0.8rem 2rem;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(123, 77, 255, 0.4);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(123, 77, 255, 0.6);
+        }
+
+        /* Footer (same as main page) */
+        footer {
+            background-color: var(--primary);
+            padding: 4rem 5% 2rem;
+            position: relative;
+        }
+
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .footer-col h3 {
+            font-size: 1.3rem;
+            margin-bottom: 1.5rem;
+            position: relative;
+            padding-bottom: 0.5rem;
+            color: var(--text);
+        }
+
+        .footer-col h3::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 50px;
+            height: 2px;
+            background-color: var(--accent);
+        }
+
+        .footer-col p {
+            color: var(--text-secondary);
+            margin-bottom: 1rem;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 0.8rem;
+        }
+
+        .footer-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .footer-links a:hover {
+            color: var(--accent);
+            transform: translateX(5px);
+        }
+
+        .footer-links i {
+            font-size: 0.8rem;
+            color: var(--accent);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        .social-link {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: var(--primary-light);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text);
+            transition: all 0.3s ease;
+            border: 1px solid rgba(123, 77, 255, 0.1);
+        }
+
+        .social-link:hover {
+            background-color: var(--accent);
+            transform: translateY(-5px);
+            color: var(--primary);
+            box-shadow: 0 5px 15px rgba(123, 77, 255, 0.3);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 992px) {
+            .services-hero h1 {
+                font-size: 3rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            nav ul {
+                position: fixed;
+                top: 80px;
+                left: -100%;
+                width: 100%;
+                height: calc(100vh - 80px);
+                background-color: var(--primary);
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                gap: 3rem;
+                transition: all 0.5s ease;
+            }
+
+            nav ul.active {
+                left: 0;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .services-hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .section-title h2 {
+                font-size: 2rem;
+            }
+
+            .services-cta {
+                padding: 2rem 1.5rem;
+            }
+
+            .services-cta h2 {
+                font-size: 2rem;
+            }
+
+            .process-step:not(:last-child)::after {
+                display: none;
+            }
+
+            .process-steps {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .header-container {
+                padding: 1rem 5%;
+            }
+
+            .logo-text {
+                font-size: 1.5rem;
+            }
+
+            .services-hero h1 {
+                font-size: 2rem;
+            }
+
+            .services-hero p {
+                font-size: 1rem;
+            }
+
+            .service-card {
+                min-width: 100%;
+            }
+
+            .detail-tabs {
+                flex-wrap: wrap;
+            }
+
+            .detail-tab {
+                padding: 0.8rem 1rem;
+                font-size: 0.9rem;
+            }
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes slideInLeft {
+            from { 
+                opacity: 0;
+                transform: translateX(-50px);
+            }
+            to { 
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes slideInRight {
+            from { 
+                opacity: 0;
+                transform: translateX(50px);
+            }
+            to { 
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes slideInUp {
+            from { 
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to { 
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .animate-fadeIn {
+            animation: fadeIn 1s ease forwards;
+        }
+
+        .animate-slideInLeft {
+            animation: slideInLeft 1s ease forwards;
+        }
+
+        .animate-slideInRight {
+            animation: slideInRight 1s ease forwards;
+        }
+
+        .animate-slideInUp {
+            animation: slideInUp 1s ease forwards;
+        }
+
+        .delay-1 {
+            animation-delay: 0.2s;
+        }
+
+        .delay-2 {
+            animation-delay: 0.4s;
+        }
+
+        .delay-3 {
+            animation-delay: 0.6s;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="header-container">
+            <div class="logo">
+                <div class="logo-icon">
+                    <i class="fas fa-code"></i>
+                </div>
+                <span class="logo-text">Stratek Softwares</span>
+            </div>
+            <nav>
+                <button class="mobile-menu-btn">
+                    <i class="fas fa-bars"></i>
+                </button>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="services.html" class="active">Services</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="index.html#portfolio">Portfolio</a></li>
+                    <li><a href="index.html#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Services Hero Section -->
+    <section class="services-hero">
+        <div class="glow glow-1"></div>
+        <div class="glow glow-2"></div>
+        <div class="services-hero-content">
+            <div class="breadcrumb">
+                <a href="index.html">Home</a>
+                <span class="breadcrumb-separator">/</span>
+                <span class="current">Services</span>
+            </div>
+            <h1>Our Comprehensive Services</h1>
+            <p>Expert solutions tailored to your digital needs. We combine innovation with technical excellence to deliver outstanding results.</p>
+        </div>
+    </section>
+
+    <!-- Services Main Content -->
+    <section class="services-main">
+        <div class="services-container">
+            <div class="section-title animate-fadeIn">
+                <h2>What We Offer</h2>
+                <p>Explore our range of professional services designed to elevate your digital presence</p>
+            </div>
+
+            <!-- Service Categories (optional filter) -->
+            <div class="service-categories animate-fadeIn">
+                <button class="category-btn active" data-category="all">All Services</button>
+                <button class="category-btn" data-category="development">Development</button>
+                <button class="category-btn" data-category="design">Design</button>
+                <button class="category-btn" data-category="strategy">Strategy</button>
+                <button class="category-btn" data-category="support">Support</button>
+            </div>
+
+            <!-- Services Grid -->
+            <div class="services-grid">
+                <div class="service-card animate-slideInUp" data-category="development">
+                    <div class="service-icon">
+                        <i class="fas fa-code"></i>
+                    </div>
+                    <h3>Custom Web Development</h3>
+                    <p>Tailored websites built with modern technologies to meet your specific business requirements and goals.</p>
+                    <ul class="service-features">
+                        <li><i class="fas fa-check"></i> Responsive design</li>
+                        <li><i class="fas fa-check"></i> CMS integration</li>
+                        <li><i class="fas fa-check"></i> E-commerce solutions</li>
+                    </ul>
+                    <a href="#web-development" class="service-link">Learn more <i class="fas fa-arrow-right"></i></a>
+                </div>
+
+                <div class="service-card animate-slideInUp delay-1" data-category="development">
+                    <div class="service-icon">
+                        <i class="fas fa-mobile-alt"></i>
+                    </div>
+                    <h3>Mobile App Development</h3>
+                    <p>Native and cross-platform applications designed to engage users and streamline operations.</p>
+                    <ul class="service-features">
+                        <li><i class="fas fa-check"></i> iOS & Android</li>
+                        <li><i class="fas fa-check"></i> React Native</li>
+                        <li><i class="fas fa-check"></i> Flutter</li>
+                    </ul>
+                    <a href="#mobile-development" class="service-link">Learn more <i class="fas fa-arrow-right"></i></a>
+                </div>
+
+                <div class="service-card animate-slideInUp delay-2" data-category="design">
+                    <div class="service-icon">
+                        <i class="fas fa-paint-brush"></i>
+                    </div>
+                    <h3>UI/UX Design</h3>
+                    <p>Beautiful, intuitive interfaces that enhance user experience and drive engagement.</p>
+                    <ul class="service-features">
+                        <li><i class="fas fa-check"></i> User research</li>
+                        <li><i class="fas fa-check"></i> Wireframing</li>
+                        <li><i class="fas fa-check"></i> Prototyping</li>
+                    </ul>
+                    <a href="#ui-ux" class="service-link">Learn more <i class="fas fa-arrow-right"></i></a>
+                </div>
+
+                <div class="service-card animate-slideInUp" data-category="development">
+                    <div class="service-icon">
+                        <i class="fas fa-database"></i>
+                    </div>
+                    <h3>Database Solutions</h3>
+                    <p>Robust database architectures that organize, secure, and make your data accessible.</p>
+                    <ul class="service-features">
+                        <li><i class="fas fa-check"></i> SQL & NoSQL</li>
+                        <li><i class="fas fa-check"></i> Data modeling</li>
+                        <li><i class="fas fa-check"></i> API integration</li>
+                    </ul>
+                    <a href="#database" class="service-link">Learn more <i class="fas fa-arrow-right"></i></a>
+                </div>
+
+                <div class="service-card animate-slideInUp delay-1" data-category="strategy">
+                    <div class="service-icon">
+                        <i class="fas fa-search-dollar"></i>
+                    </div>
+                    <h3>SEO & Digital Marketing</h3>
+                    <p>Strategies to improve your search visibility and drive qualified traffic to your website.</p>
+                    <ul class="service-features">
+                        <li><i class="fas fa-check"></i> Keyword research</li>
+                        <li><i class="fas fa-check"></i> On-page optimization</li>
+                        <li><i class="fas fa-check"></i> Analytics tracking</li>
+                    </ul>
+                    <a href="#seo" class="service-link">Learn more <i class="fas fa-arrow-right"></i></a>
+                </div>
+
+                <div class="service-card animate-slideInUp delay-2" data-category="support">
+                    <div class="service-icon">
+                        <i class="fas fa-server"></i>
+                    </div>
+                    <h3>Web Maintenance</h3>
+                    <p>Ongoing support and updates to keep your website running smoothly and securely.</p>
+                    <ul class="service-features">
+                        <li><i class="fas fa-check"></i> Security updates</li>
+                        <li><i class="fas fa-check"></i> Performance tuning</li>
+                        <li><i class="fas fa-check"></i> Content updates</li>
+                    </ul>
+                    <a href="#maintenance" class="service-link">Learn more <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+
+            <!-- Service Details Section -->
+            <div class="service-details">
+                <div class="section-title animate-fadeIn">
+                    <h2>Service Details</h2>
+                    <p>Dive deeper into our service offerings and discover how we can help your business</p>
+                </div>
+
+                <div class="detail-tabs">
+                    <div class="detail-tab active" data-tab="web-development">Web Development</div>
+                    <div class="detail-tab" data-tab="mobile-development">Mobile Development</div>
+                    <div class="detail-tab" data-tab="ui-ux">UI/UX Design</div>
+                    <div class="detail-tab" data-tab="database">Database Solutions</div>
+                </div>
+
+                <div class="detail-content active" id="web-development">
+                    <h3>Custom Web Development Services</h3>
+                    <p>Our web development services are tailored to meet your specific business needs. We create responsive, high-performance websites that deliver exceptional user experiences across all devices.</p>
+                    <p>Our approach combines technical expertise with creative design to build websites that not only look great but also function flawlessly and drive results.</p>
+                    <h4>Our Web Development Process:</h4>
+                    <ul>
+                        <li>Requirement analysis and planning</li>
+                        <li>Custom design and prototyping</li>
+                        <li>Front-end and back-end development</li>
+                        <li>Quality assurance and testing</li>
+                        <li>Deployment and maintenance</li>
+                    </ul>
+                    <h4>Technologies We Use:</h4>
+                    <p>HTML5, CSS3, JavaScript, React, Angular, Vue.js, Node.js, PHP, Python, WordPress, Shopify, and more.</p>
+                </div>
+
+                <div class="detail-content" id="mobile-development">
+                    <h3>Mobile App Development Solutions</h3>
+                    <p>We build native and cross-platform mobile applications that engage users and deliver measurable business value. Our apps are designed for performance, scalability, and seamless user experiences.</p>
+                    <p>From concept to launch, we guide you through every step of the mobile app development process.</p>
+                    <h4>Our Mobile Development Expertise:</h4>
+                    <ul>
+                        <li>iOS app development (Swift)</li>
+                        <li>Android app development (Kotlin)</li>
+                        <li>Cross-platform development (React Native, Flutter)</li>
+                        <li>App UI/UX design</li>
+                        <li>API integration</li>
+                        <li>App store optimization</li>
+                    </ul>
+                </div>
+
+                <div class="detail-content" id="ui-ux">
+                    <h3>UI/UX Design Services</h3>
+                    <p>Great design is at the heart of every successful digital product. Our UI/UX design services focus on creating intuitive, visually appealing interfaces that users love.</p>
+                    <p>We combine user research, information architecture, and interaction design to create experiences that drive engagement and conversions.</p>
+                    <h4>Our Design Process:</h4>
+                    <ul>
+                        <li>User research and persona development</li>
+                        <li>Information architecture and wireframing</li>
+                        <li>Interactive prototyping</li>
+                        <li>Visual design and branding</li>
+                        <li>Usability testing</li>
+                    </ul>
+                </div>
+
+                <div class="detail-content" id="database">
+                    <h3>Database Solutions & Integration</h3>
+                    <p>We design and implement robust database solutions that organize your data and make it accessible when and where you need it.</p>
+                    <p>Our database services ensure your information is secure, well-structured, and optimized for performance.</p>
+                    <h4>Our Database Services Include:</h4>
+                    <ul>
+                        <li>Database design and architecture</li>
+                        <li>SQL and NoSQL database implementation</li>
+                        <li>Data migration services</li>
+                        <li>API development and integration</li>
+                        <li>Database optimization and maintenance</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Our Process Section -->
+            <div class="process-section">
+                <div class="section-title animate-fadeIn">
+                    <h2>Our Development Process</h2>
+                    <p>We follow a proven methodology to ensure successful project delivery</p>
+                </div>
+
+                <div class="process-steps">
+                    <div class="process-step animate-slideInUp">
+                        <div class="process-number">1</div>
+                        <h3>Discovery</h3>
+                        <p>We start by understanding your business goals, target audience, and project requirements.</p>
+                    </div>
+                    <div class="process-step animate-slideInUp delay-1">
+                        <div class="process-number">2</div>
+                        <h3>Planning</h3>
+                        <p>We create a detailed project plan with milestones, deliverables, and timelines.</p>
+                    </div>
+                    <div class="process-step animate-slideInUp delay-2">
+                        <div class="process-number">3</div>
+                        <h3>Design</h3>
+                        <p>Our designers create wireframes and prototypes for your review and feedback.</p>
+                    </div>
+                    <div class="process-step animate-slideInUp">
+                        <div class="process-number">4</div>
+                        <h3>Development</h3>
+                        <p>Our developers bring the designs to life with clean, efficient code.</p>
+                    </div>
+                    <div class="process-step animate-slideInUp delay-1">
+                        <div class="process-number">5</div>
+                        <h3>Testing</h3>
+                        <p>We rigorously test all functionality across devices and browsers.</p>
+                    </div>
+                    <div class="process-step animate-slideInUp delay-2">
+                        <div class="process-number">6</div>
+                        <h3>Launch</h3>
+                        <p>We deploy your project and provide ongoing support as needed.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CTA Section -->
+            <div class="services-cta animate-fadeIn">
+                <h2>Ready to Transform Your Digital Presence?</h2>
+                <p>Whether you need a new website, mobile app, or custom software solution, we have the expertise to bring your vision to life.</p>
+                <a href="index.html#contact" class="cta-button">Get Started Today</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-col">
+                <h3>Stratek Softwares</h3>
+                <p>Innovative digital solutions tailored to your business needs. We create, maintain, and optimize your online presence.</p>
+                <div class="social-links">
+                    <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-github"></i></a>
+                </div>
+            </div>
+            <div class="footer-col">
+                <h3>Quick Links</h3>
+                <ul class="footer-links">
+                    <li><a href="index.html"><i class="fas fa-chevron-right"></i> Home</a></li>
+                    <li><a href="services.html"><i class="fas fa-chevron-right"></i> Services</a></li>
+                    <li><a href="about.html"><i class="fas fa-chevron-right"></i> About Us</a></li>
+                    <li><a href="index.html#portfolio"><i class="fas fa-chevron-right"></i> Portfolio</a></li>
+                    <li><a href="index.html#contact"><i class="fas fa-chevron-right"></i> Contact</a></li>
+                </ul>
+            </div>
+                    <div class="footer-col">
+            <h3>Our Services</h3>
+            <ul class="footer-links">
+                <li><a href="#web-development"><i class="fas fa-chevron-right"></i> Web Development</a></li>
+                <li><a href="#mobile-development"><i class="fas fa-chevron-right"></i> App Development</a></li>
+                <li><a href="#ui-ux"><i class="fas fa-chevron-right"></i> UI/UX Design</a></li>
+                <li><a href="#database"><i class="fas fa-chevron-right"></i> Database Solutions</a></li>
+                <li><a href="#seo"><i class="fas fa-chevron-right"></i> SEO Optimization</a></li>
+            </ul>
+        </div>
+        <div class="footer-col">
+            <h3>Newsletter</h3>
+            <p>Subscribe to our newsletter for the latest updates and tech insights.</p>
+            <form class="newsletter-form">
+                <input type="email" placeholder="Your Email" required>
+                <button type="submit" class="submit-btn">Subscribe</button>
+            </form>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <p>&copy; 2023 Stratek Softwares. All Rights Reserved.</p>
+    </div>
+</footer>
+
+<script>
+    // Mobile Menu Toggle
+    const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+    const navUl = document.querySelector('nav ul');
+
+    mobileMenuBtn.addEventListener('click', () => {
+        navUl.classList.toggle('active');
+        mobileMenuBtn.innerHTML = navUl.classList.contains('active') ? 
+            '<i class="fas fa-times"></i>' : '<i class="fas fa-bars"></i>';
+    });
+
+    // Service Category Filter
+    const categoryBtns = document.querySelectorAll('.category-btn');
+    const serviceCards = document.querySelectorAll('.service-card');
+
+    categoryBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+            // Remove active class from all buttons
+            categoryBtns.forEach(btn => btn.classList.remove('active'));
+            // Add active class to clicked button
+            btn.classList.add('active');
+            
+            const category = btn.dataset.category;
+            
+            // Filter service cards
+            serviceCards.forEach(card => {
+                if (category === 'all' || card.dataset.category === category) {
+                    card.style.display = 'block';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        });
+    });
+
+    // Service Detail Tabs
+    const detailTabs = document.querySelectorAll('.detail-tab');
+    const detailContents = document.querySelectorAll('.detail-content');
+
+    detailTabs.forEach(tab => {
+        tab.addEventListener('click', () => {
+            // Remove active class from all tabs and contents
+            detailTabs.forEach(t => t.classList.remove('active'));
+            detailContents.forEach(c => c.classList.remove('active'));
+            
+            // Add active class to clicked tab and corresponding content
+            tab.classList.add('active');
+            const tabId = tab.dataset.tab;
+            document.getElementById(tabId).classList.add('active');
+        });
+    });
+
+    // Smooth scrolling for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+            e.preventDefault();
+            
+            const targetId = this.getAttribute('href');
+            const targetElement = document.querySelector(targetId);
+            
+            if(targetElement) {
+                window.scrollTo({
+                    top: targetElement.offsetTop - 100,
+                    behavior: 'smooth'
+                });
+                
+                // Close mobile menu if open
+                if(navUl.classList.contains('active')) {
+                    navUl.classList.remove('active');
+                    mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+                }
+            }
+        });
+    });
+
+    // Scroll animations
+    const animateElements = document.querySelectorAll('.animate-fadeIn, .animate-slideInLeft, .animate-slideInRight, .animate-slideInUp');
+
+    function checkScroll() {
+        animateElements.forEach(element => {
+            const elementTop = element.getBoundingClientRect().top;
+            const windowHeight = window.innerHeight;
+            
+            if(elementTop < windowHeight - 100) {
+                element.style.opacity = 1;
+                element.style.transform = 'translate(0, 0)';
+            }
+        });
+    }
+
+    // Initial check
+    checkScroll();
+    
+    // Check on scroll
+    window.addEventListener('scroll', checkScroll);
+
+    // Form submission
+    const newsletterForm = document.querySelector('.newsletter-form');
+    if(newsletterForm) {
+        newsletterForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Thank you for subscribing to our newsletter!');
+            this.reset();
+        });
+    }
+</script>
